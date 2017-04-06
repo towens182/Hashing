@@ -17,8 +17,6 @@ int main()
 	Map<class valueType> * myMap = new Map<valueType>();
 
 
-
-
 	for (int i = 1; i < 101; i++)
 	{
 		string mapInput =  "Key";

@@ -15,7 +15,8 @@ public:
 	int size();						//returns number of elements stored in the map
 
 private:
-
+	vector<valueType> keyV;
+	vector<valueType> objV;
 };
 
 
