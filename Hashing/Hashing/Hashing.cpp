@@ -14,7 +14,8 @@ int main()
 	template <class valueType>
 	valueType T;
 
-	Map<class valueType> * myMap = new Map<valueType>();
+	
+	Map<int> myIntMap;
 
 
 	for (int i = 1; i < 101; i++)

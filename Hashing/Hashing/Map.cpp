@@ -17,6 +17,9 @@ template <class valueType>
 bool insert(string key, valueType value)
 {
 	
+	
+
+
 
 	return true;
 }
