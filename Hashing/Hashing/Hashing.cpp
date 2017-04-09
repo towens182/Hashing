@@ -91,12 +91,30 @@ int main()
 	{
 		cout << "Added Key2 to intMap" << endl;
 	}
-	if(doubleMap->insert("Key101", 101.5) == true);
+	if(doubleMap->insert("Key101", 101.5) == true)
 	{
 		cout << "Added Key101 to doubleMap" << endl;
 	}
+	cout << endl;
+	cout << "Getting values in intMap" << endl;
+	for (int i = 5; i < 8; i++)
+	{
+		cout << "Key" << i << "\tValue: " << intMap->get("Key" + to_string(i)) << endl;
+	}
 
+	cout << endl;
+	cout << "Getting values in doubleMap" << endl;
+	for (int i = 56; i < 59; i++)
+	{
+		cout << "Key" << i << "\tValue: " << doubleMap->get("Key" + to_string(i)) << endl;
+	}
 
+	cout << endl;
+	cout << "Getting values in stringMap" << endl;
+	for (int i = 23; i < 26; i++)
+	{
+		cout << "Key" << i << "\tValue: " << stringMap->get("Key" + to_string(i)) << endl;
+	}
 	//Cleanup
 	delete intMap;
 	delete doubleMap;

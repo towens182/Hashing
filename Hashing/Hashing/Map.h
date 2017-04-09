@@ -12,7 +12,7 @@ public:
 	~Map<valueType>();
 
 	bool insert(std::string key, valueType value);	//adds a value to the map using the specified key
-	//valueType get(std::string key);			//returns the value associated with the specified key
+	valueType get(std::string key);			//returns the value associated with the specified key
 	bool remove(std::string key);			//removes the value with the associated key
 	int size();						//returns number of elements stored in the map
 	bool keyFound(std::string key);
@@ -25,16 +25,12 @@ private:
 template<class valueType>
 inline Map<valueType>::Map()
 {
-
-	//keyV = new std::vector<valueType>();
-	//objV = new std::vector<valueType>();
 }
 
 template <class valueType>
 inline Map<valueType>::~Map()
 {
-	/*delete keyV;
-	delete objV;*/
+	//must delete elements from vectors
 }
 
 
@@ -53,9 +49,25 @@ inline bool Map<valueType>::insert(std::string key, valueType value)
 	}
 	else
 	{
-		std::cout << "Entry already exists with that key!" << std::endl;
+		std::cout << "Entry already exists with " << key << std::endl;
 		return false;
 	}
+}
+
+template<class valueType>
+inline valueType Map<valueType>::get(std::string key)
+{
+	std::hash<std::string> hash_fn;
+	int counter = 0;
+	for (std::vector<std::size_t>::iterator it = keyV.begin(); it != keyV.end(); ++it)
+	{
+		if (*it == hash_fn(key))
+		{
+			return objV[counter];
+		}
+		counter++;
+	}
+	
 }
 
 template<class valueType>
