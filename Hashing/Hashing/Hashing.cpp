@@ -12,11 +12,13 @@
 int main()
 {
 	using namespace std;
+	cout << "Creating three maps of type int, double, and string." << endl;
 
 	Map<int> * intMap = new Map<int>();
 	Map<double> * doubleMap = new Map<double>();
 	Map<string> * stringMap = new Map<string>();
 
+	cout << "Size of maps." << endl;
 	cout << "Size of intMap: " << intMap->size() << endl;
 	cout << "Size of floatMap: " << doubleMap->size() << endl;
 	cout << "Size of stringMap: " << stringMap->size() << endl << endl;
@@ -27,7 +29,7 @@ int main()
 	//Add elements to maps
 	for (int i = 1; i < 101; i++)
 	{
-		string mapInput =  "Key";
+		string mapInput = "Key";
 
 		mapInput = mapInput + to_string(i);
 
@@ -43,13 +45,13 @@ int main()
 	cout << "Now removing various items" << endl;
 
 
-	if (intMap->remove("Key2") == true)
+	if (intMap->remove("Key105") == true)
 	{
-		cout << "Removed Key2 from intMap" << endl;
+		cout << "Removed Key105 from intMap" << endl;
 	}
 	else
 	{
-		cout << "Did not remove Key2 in intMap" << endl;
+		cout << "Did not remove Key105 in intMap" << endl;
 	}
 
 	for (int i = 32; i < 36; i++)
@@ -72,49 +74,80 @@ int main()
 	{
 		cout << "Did not remove Key101 in stringMap" << endl;
 	}
-
+	if (stringMap->remove("Key24") == true)
+	{
+		cout << "Removed Key24 from stringMap" << endl;
+	}
+	else
+	{
+		cout << "Did not remove Key24 in stringMap" << endl;
+	}
 	cout << endl;
 	cout << "Size of intMap: " << intMap->size() << endl;
 	cout << "Size of doubleMap: " << doubleMap->size() << endl;
 	cout << "Size of stringMap: " << stringMap->size() << endl << endl;
 
-	cout << "Now attempting to add vaious elements." << endl;
-	if (intMap->insert("Key101", 101) == true)
+	try
 	{
-		cout << "Added Key101 to intMap" << endl;
+		cout << "Now attempting to add vaious elements." << endl;
+		if (intMap->insert("Key101", 101) == true)
+		{
+			cout << "Added Key101 to intMap" << endl;
+		}
+		if (intMap->insert("Key3", 3) == true)
+		{
+			cout << "Added Key3 to intMap" << endl;
+		}
+		if (intMap->insert("Key", 2) == true)
+		{
+			cout << "Added Key2 to intMap" << endl;
+		}
+		if (doubleMap->insert("Key101", 101.5) == true)
+		{
+			cout << "Added Key101 to doubleMap" << endl;
+		}
+		cout << endl;
+		cout << "Size of intMap: " << intMap->size() << endl;
+		cout << "Size of doubleMap: " << doubleMap->size() << endl;
+		cout << "Size of stringMap: " << stringMap->size() << endl << endl;
+
+		cout << "Getting values in intMap" << endl;
+		for (int i = 5; i < 8; i++)
+		{
+			cout << "Key" << i << "\tValue: " << intMap->get("Key" + to_string(i)) << endl;
+		}
+
+		cout << endl;
+		cout << "Getting values in doubleMap" << endl;
+		for (int i = 56; i < 59; i++)
+		{
+			cout << "Key" << i << "\tValue: " << doubleMap->get("Key" + to_string(i)) << endl;
+		}
+
+		cout << endl;
+		cout << "Getting values in stringMap" << endl;
+		for (int i = 23; i < 25; i++)
+		{
+			cout << "Key" << i << "\tValue: " << stringMap->get("Key" + to_string(i)) << endl;
+		}
+		
+}
+	catch (string error)
+	{
+		cout << error << endl;
 	}
-	if (intMap->insert("Key3", 3) == true)
-	{
-		cout << "Added Key3 to intMap" << endl;
+	try {
+		cout << "Key25" << "\tValue: " << stringMap->get("Key25") << endl;
+		cout << "Key120" << "\tValue: " << stringMap->get("Key120") << endl;
+
 	}
-	if (intMap->insert("Key", 2) == true)
+	catch (string error)
 	{
-		cout << "Added Key2 to intMap" << endl;
-	}
-	if(doubleMap->insert("Key101", 101.5) == true)
-	{
-		cout << "Added Key101 to doubleMap" << endl;
-	}
-	cout << endl;
-	cout << "Getting values in intMap" << endl;
-	for (int i = 5; i < 8; i++)
-	{
-		cout << "Key" << i << "\tValue: " << intMap->get("Key" + to_string(i)) << endl;
+
+		cout << error << endl;
+
 	}
 
-	cout << endl;
-	cout << "Getting values in doubleMap" << endl;
-	for (int i = 56; i < 59; i++)
-	{
-		cout << "Key" << i << "\tValue: " << doubleMap->get("Key" + to_string(i)) << endl;
-	}
-
-	cout << endl;
-	cout << "Getting values in stringMap" << endl;
-	for (int i = 23; i < 26; i++)
-	{
-		cout << "Key" << i << "\tValue: " << stringMap->get("Key" + to_string(i)) << endl;
-	}
 	//Cleanup
 	delete intMap;
 	delete doubleMap;

@@ -30,7 +30,8 @@ inline Map<valueType>::Map()
 template <class valueType>
 inline Map<valueType>::~Map()
 {
-	//must delete elements from vectors
+	keyV.clear();
+	objV.clear();
 }
 
 
@@ -67,7 +68,7 @@ inline valueType Map<valueType>::get(std::string key)
 		}
 		counter++;
 	}
-	
+	throw std::string("No value found for " + key);
 }
 
 template<class valueType>
